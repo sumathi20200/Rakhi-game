@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakhi Surprise for My Brother ❤️</title>
+<style>
+  *{box-sizing:border-box}
+  body{
+    margin:0; min-height:100vh; font-family:system-ui,-apple-system,Segoe UI,sans-serif;
+    background:linear-gradient(135deg,#fff3e6,#ffe0ec,#eee1ff);
+    color:#351b32; display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .card{
+    width:min(92%,520px); min-height:620px; padding:34px 25px; text-align:center;
+    background:rgba(255,255,255,.86); border:1px solid rgba(255,255,255,.8);
+    border-radius:30px; box-shadow:0 20px 60px rgba(74,30,80,.18);
+    position:relative; overflow:hidden;
+  }
+  .screen{display:none; animation:fade .6s ease}
+  .screen.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+  .emoji{font-size:68px;margin:12px 0}
+  h1{font-size:34px;margin:10px 0 8px}
+  h2{font-size:27px;margin:12px 0}
+  p{font-size:17px;line-height:1.7;margin:12px auto;max-width:420px}
+  .small{font-size:14px;opacity:.7}
+  button{
+    border:0; border-radius:999px; padding:14px 25px; margin-top:20px;
+    font-size:16px;font-weight:700;cursor:pointer;
+    background:#7b3f98;color:white;box-shadow:0 8px 20px rgba(123,63,152,.25);
+  }
+  button:hover{transform:translateY(-2px)}
+  .gift{
+    margin:25px auto 10px; width:150px;height:150px;border-radius:28px;
+    background:#f6b2c8;display:flex;align-items:center;justify-content:center;
+    font-size:72px;cursor:pointer;transition:.5s;
+  }
+  .gift:hover{transform:scale(1.06) rotate(-2deg)}
+  .photo{
+    width:170px;height:170px;margin:18px auto;border-radius:50%;
+    background:#f1d5e3;display:flex;align-items:center;justify-content:center;
+    font-size:58px;border:7px solid white;box-shadow:0 8px 25px #0002;
+  }
+  .tag{display:inline-block;padding:7px 13px;border-radius:999px;background:#f5e1ff;font-size:13px}
+  .heart{position:absolute;animation:float 5s linear infinite;opacity:.55}
+  @keyframes float{0%{transform:translateY(110vh) rotate(0)}100%{transform:translateY(-120px) rotate(360deg)}}
+  .footer{position:absolute;bottom:12px;left:0;right:0;font-size:12px;opacity:.55}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+
+<div class="card">
+  <section class="screen active" id="s1">
+    <div class="emoji">🪢❤️</div>
+    <span class="tag">PRIVATE RAKHI SURPRISE</span>
+    <h1>Hey, Bro! 😎</h1>
+    <p>You've received a very important mission.</p>
+    <p><b>Open this surprise to unlock your Rakhi message.</b></p>
+    <button onclick="next(2)">🔓 Unlock Surprise</button>
+  </section>
+
+  <section class="screen" id="s2">
+    <div class="photo">👦🏻❤️</div>
+    <h2>To My Crazy Brother</h2>
+    <p>
+      From stealing my things to annoying me for absolutely no reason… 😂
+      somehow you've become one of the most important people in my life.
+    </p>
+    <button onclick="next(3)">💌 Read My Wish</button>
+  </section>
+
+  <section class="screen" id="s3">
+    <div class="emoji">🪢✨</div>
+    <h2>Happy Raksha Bandhan, Bro! ❤️</h2>
+    <p>
+      No matter how much we fight, tease each other, or pretend we don't care,
+      I'll always have your back.
+    </p>
+    <p>
+      May you always be happy, successful and surrounded by everything you deserve.
+      Stay awesome… and please remain only <b>slightly</b> irritating! 😂
+    </p>
+    <p><b>Love you, bro! ❤️</b></p>
+    <button onclick="next(4)">🎁 There's One More Thing...</button>
+  </section>
+
+  <section class="screen" id="s4">
+    <div class="emoji">🎁</div>
+    <h2>Your Gift Is Waiting!</h2>
+    <p>You've unlocked the final level.</p>
+    <div class="gift" onclick="reveal()">🎁</div>
+    <p class="small">Tap the gift to reveal your surprise</p>
+    <div id="revealText" style="display:none">
+      <h2>🎉 SURPRISE! 🎉</h2>
+      <p><b>YOUR GIFT:</b></p>
+      <p id="giftName">❤️ A special gift chosen just for you ❤️</p>
+      <p>Because you deserve something awesome, bro! 😎</p>
+    </div>
+  </section>
+
+  <div class="footer">Made with ❤️ especially for my brother</div>
+</div>
+
+<script>
+function next(n){
+  document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+}
+function reveal(){
+  document.getElementById('revealText').style.display='block';
+  document.querySelector('.gift').style.transform='scale(1.08) rotate(3deg)';
+}
+const heartChars=['❤️','💖','💜','🪢','✨'];
+for(let i=0;i<18;i++){
+  const h=document.createElement('div');
+  h.className='heart';
+  h.textContent=heartChars[Math.floor(Math.random()*heartChars.length)];
+  h.style.left=Math.random()*100+'%';
+  h.style.animationDelay=(Math.random()*5)+'s';
+  h.style.fontSize=(14+Math.random()*20)+'px';
+  document.getElementById('hearts').appendChild(h);
+}
+</script>
+</body>
+</html>
